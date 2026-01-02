@@ -1,55 +1,78 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: N/A → 1.0.0 (initial creation)
+- Added sections: All principles and governance based on project requirements
+- Templates requiring updates: N/A (new constitution)
+- Follow-up TODOs: None
+-->
+# AI-native Todo Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity First
+Start minimal and evolve incrementally. Each phase must introduce only the minimum required new complexity. No premature optimization or overengineering before the corresponding phase. Focus on deterministic behavior especially in Phase I in-memory logic.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Clear Separation of Concerns
+Maintain distinct boundaries between domain logic, infrastructure, and interfaces. All business logic must be testable without UI dependencies. Each phase builds cleanly on the previous with clear layer separation.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Progressive Enhancement
+Every phase progressively enhances the previous one while maintaining core functionality. AI components must be optional and non-blocking to core functionality. Each phase must be fully functional on its own before advancing.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. AI-Native Readiness
+Design decisions must anticipate AI integration. Architectural choices should support future AI capabilities without blocking current functionality. Ensure clean interfaces that can accommodate AI agents operating via defined tools and contracts.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Developer Ergonomics
+Prioritize readable code, clear structure, and fast iteration. Console UX must be intuitive, explicit, and error-tolerant. Dependencies should be minimized in early phases with clear documentation of architectural changes between phases.
 
-### [PRINCIPLE_6_NAME]
+### VI. Deterministic Behavior
+Especially critical for Phase I in-memory logic. All operations must have predictable, repeatable outcomes. Business logic must be testable and maintain consistent behavior across phases.
 
+## Technical Standards
 
-[PRINCIPLE__DESCRIPTION]
+### Code Quality Requirements
+- Python code must follow PEP 8 and idiomatic patterns
+- Phase I must be fully in-memory (no filesystem or database persistence)
+- Functional correctness prioritized over premature optimization
+- Dependency minimization in early phases
+- Clear boundaries between domain logic, infrastructure, and interfaces
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Architecture Constraints
+- Phase I: No external databases, no web frameworks, no background workers
+- Phase II: REST-first API design, typed models, schema-driven validation
+- Phase III: AI agents must operate via defined tools and contracts
+- Phase IV: Must run locally via Minikube with one-command startup
+- Phase V: Must support event-driven and scalable architecture
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Documentation Requirements
+- Explicit documentation of architectural changes between phases
+- All changes must be small, testable, and reference code precisely
+- Backward compatibility where feasible between phases
+- Documentation required at every phase transition
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Implementation Guidelines
+- Clarify and plan first - keep business understanding separate from technical plan
+- Do not invent APIs, data, or contracts; ask targeted clarifiers if missing
+- Never hardcode secrets or tokens; use `.env` and docs
+- Prefer the smallest viable diff; do not refactor unrelated code
+- Cite existing code with code references; propose new code in fenced blocks
+
+### Quality Gates
+- Clear, testable acceptance criteria included
+- Explicit error paths and constraints stated
+- Smallest viable change; no unrelated edits
+- Code references to modified/inspected files where relevant
+- All business logic must be testable without UI dependencies
+
+### Testing Requirements
+- TDD mandatory: Tests written → User approved → Tests fail → Then implement
+- Red-Green-Refactor cycle strictly enforced
+- Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas
+- All business logic must be testable without UI dependencies
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices and development guidelines. All implementation work must align with these principles. Amendments require explicit documentation, approval process, and migration plan if applicable. All PRs and reviews must verify compliance with these principles. Complexity must be justified with clear rationale tied to project phases and requirements.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-03 | **Last Amended**: 2026-01-03
