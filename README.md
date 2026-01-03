@@ -123,4 +123,4 @@ The application follows a clean architecture with distinct layers:
 - **Models**: Data structures (Todo entity)
 - **Repositories**: Data access layer (in-memory storage)
 - **Services**: Business logic layer (TodoService)
-- **CLI**: User interface layer (ConsoleUI)# hackathon-2-phase1
+- **CLI**: User interface layer (ConsoleUI)
