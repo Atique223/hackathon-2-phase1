@@ -29,7 +29,12 @@ A simple command-line todo application that stores tasks in memory only. This ap
 
 ## Usage
 
-Run the application:
+Run the application with the direct command:
+```bash
+todo
+```
+
+Or alternatively:
 ```bash
 python -m src.main
 ```
